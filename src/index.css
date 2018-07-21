@@ -1,0 +1,8 @@
+:root {
+  --bgColor: black;
+  --fgColor: #e0e0e0;
+}
+body {
+  background: var(--bgColor);
+  color: var(--fgColor);
+}
