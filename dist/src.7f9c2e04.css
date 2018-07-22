@@ -1,0 +1,56 @@
+.Commandline {
+}
+
+.Commandline__highlight {
+  display: inline-block;
+  animation-name: highlightBlink;
+  animation-direction: forwards;
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes highlightBlink {
+  0% {
+    background: var(--fgColor);
+    color: var(--bgColor);
+  }
+  49% {
+    background: var(--fgColor);
+    color: var(--bgColor);
+  }
+  50% {
+    background: var(--bgColor);
+    color: var(--fgColor);
+  }
+  99% {
+    background: var(--bgColor);
+    color: var(--fgColor);
+  }
+}
+.Terminal__textarea {
+  opacity: 0;
+  top: -100vh;
+  left: -100vw;
+  position: fixed;
+  width: 0;
+  height: 0;
+}
+:root {
+  --black: #222;
+  --green: #00e640;
+  --font-mono: Courier, monospace;
+  --vapor-pink: #ff71ce;
+  --vapor-blue: #01cdfe;
+  --vapor-green: #05ffa1;
+  --vapor-purple: #b967ff;
+  --vapor-yellow: #fffb96;
+  --bgColor: var(--black);
+  --fgColor: var(--green);
+  --font-family: var(--font-mono);
+}
+body {
+  background: var(--bgColor);
+  color: var(--fgColor);
+  font-family: var(--font-family);
+  font-size: 12px;
+}
