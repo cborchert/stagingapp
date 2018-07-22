@@ -1,0 +1,8 @@
+.Terminal__textarea {
+  opacity: 0;
+  top: -100vh;
+  left: -100vw;
+  position: fixed;
+  width: 0;
+  height: 0;
+}

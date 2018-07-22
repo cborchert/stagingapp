@@ -5,10 +5,12 @@ import Terminal from "./index.js";
 
 describe("Terminal", () => {
   let wrapper;
+
   it("wraps content in a div with .Terminal class", () => {
     wrapper = shallow(<Terminal />);
     expect(wrapper.find(".Terminal").length).toEqual(1);
   });
+
   it("renders children", () => {
     wrapper = mount(
       <Terminal>

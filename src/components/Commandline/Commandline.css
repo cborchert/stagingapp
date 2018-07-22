@@ -1,0 +1,29 @@
+.Commandline {
+}
+
+.Commandline__highlight {
+  display: inline-block;
+  animation-name: highlightBlink;
+  animation-direction: forwards;
+  animation-duration: 600ms;
+  animation-iteration-count: infinite;
+}
+
+@keyframes highlightBlink {
+  0% {
+    background: var(--fgColor);
+    color: var(--bgColor);
+  }
+  49% {
+    background: var(--fgColor);
+    color: var(--bgColor);
+  }
+  50% {
+    background: var(--bgColor);
+    color: var(--fgColor);
+  }
+  99% {
+    background: var(--bgColor);
+    color: var(--fgColor);
+  }
+}

@@ -5,7 +5,7 @@ import "./index.css";
 
 const App = () => (
   <div className="App">
-    <Terminal />
+    <Terminal>welcome to stagingsite.app</Terminal>
   </div>
 );
 
