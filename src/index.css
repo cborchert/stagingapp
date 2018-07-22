@@ -1,8 +1,19 @@
 :root {
-  --bgColor: black;
-  --fgColor: #e0e0e0;
+  --black: #222;
+  --green: #00e640;
+  --font-mono: Courier, monospace;
+  --vapor-pink: #ff71ce;
+  --vapor-blue: #01cdfe;
+  --vapor-green: #05ffa1;
+  --vapor-purple: #b967ff;
+  --vapor-yellow: #fffb96;
+  --bgColor: var(--black);
+  --fgColor: var(--green);
+  --font-family: var(--font-mono);
 }
 body {
   background: var(--bgColor);
   color: var(--fgColor);
+  font-family: var(--font-family);
+  font-size: 12px;
 }
