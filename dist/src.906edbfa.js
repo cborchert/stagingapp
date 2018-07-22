@@ -19958,7 +19958,7 @@ var Terminal = function (_Component) {
     key: "checkCommand",
     value: function checkCommand(command) {
       if (command && command.trim) {
-        var cmd = command.trim();
+        var cmd = command.trim().toLowerCase();
         if (cmd === "clear") {
           this.setState({ visibleHistory: [] });
         } else if (cmd === "help") {

@@ -7,12 +7,12 @@
   --vapor-green: #05ffa1;
   --vapor-purple: #b967ff;
   --vapor-yellow: #fffb96;
-  --offBlue: #4183d7;
+  --offBlue: #59abe3;
 
   --bgColor: var(--black);
   --fgColor: var(--green);
-  --linkColor: var(--vapor-blue);
-  --accentColor: var(--offBlue);
+  --linkColor: var(--vapor-yellow);
+  --accentColor: var(--vapor-blue);
   --font-family: var(--font-mono);
 }
 body {

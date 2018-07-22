@@ -45,7 +45,7 @@ export default class Terminal extends Component {
 
   checkCommand(command) {
     if (command && command.trim) {
-      let cmd = command.trim();
+      let cmd = command.trim().toLowerCase();
       if (cmd === "clear") {
         this.setState({ visibleHistory: [] });
       } else if (cmd === "help") {
