@@ -7,6 +7,6 @@ export default class Terminal extends Component {
   }
   render() {
     const { children } = this.props;
-    return <div className="Terminal" />;
+    return <div className="Terminal">{children}</div>;
   }
 }
