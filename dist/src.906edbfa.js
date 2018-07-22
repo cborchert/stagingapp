@@ -19927,7 +19927,6 @@ var Terminal = function (_Component) {
   _createClass(Terminal, [{
     key: "handleTextareaChange",
     value: function handleTextareaChange(e) {
-      // console.log(e.target.value);
       this.setState({
         currentInput: e.target.value,
         cursorLocationStart: e.target.selectionStart,
@@ -19947,10 +19946,91 @@ var Terminal = function (_Component) {
     key: "handleKeyup",
     value: function handleKeyup(e) {
       var code = e.which || e.keyCode;
+      var command = this.state.currentInput;
       switch (code) {
         case 13:
           this.newCommand();
+          this.checkCommand(command);
           break;
+      }
+    }
+  }, {
+    key: "checkCommand",
+    value: function checkCommand(command) {
+      if (command && command.trim) {
+        var cmd = command.trim();
+        if (cmd === "clear") {
+          this.setState({ visibleHistory: [] });
+        } else if (cmd === "help") {
+          var output = _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement("br", null),
+            "\xA0\xA0stagingsite.app commands",
+            _react2.default.createElement("br", null),
+            "\xA0\xA0------------------------",
+            _react2.default.createElement("br", null),
+            "\xA0\xA0`clear` clears the screen",
+            _react2.default.createElement("br", null),
+            "\xA0\xA0`help` shows the help screen",
+            _react2.default.createElement("br", null),
+            "\xA0\xA0`about` shows app information",
+            _react2.default.createElement("br", null),
+            _react2.default.createElement("br", null)
+          );
+          this.setState({
+            visibleHistory: [].concat(_toConsumableArray(this.state.visibleHistory), [output])
+          });
+        } else if (cmd === "about") {
+          var _output = _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement("br", null),
+            "\xA0\xA0stagingsite.app created by",
+            " ",
+            _react2.default.createElement(
+              "a",
+              { href: "http://cborchert.com/", target: "_blank" },
+              "chris borchert"
+            ),
+            ".",
+            _react2.default.createElement("br", null),
+            "\xA0\xA0check out the",
+            " ",
+            _react2.default.createElement(
+              "a",
+              { href: "https://github.com/cborchert/stagingapp", target: "_blank" },
+              "git repo"
+            ),
+            _react2.default.createElement("br", null),
+            "\xA0\xA0need some dev work done?",
+            " ",
+            _react2.default.createElement(
+              "a",
+              { href: "http://cborchert.com/hire", target: "_blank" },
+              "drop a line"
+            ),
+            _react2.default.createElement("br", null),
+            _react2.default.createElement("br", { help: true })
+          );
+          this.setState({
+            visibleHistory: [].concat(_toConsumableArray(this.state.visibleHistory), [_output])
+          });
+        } else {
+          var _output2 = _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement("br", null),
+            "\xA0\xA0command not recognized.",
+            _react2.default.createElement("br", null),
+            "\xA0\xA0type `help` for a list of all commands.",
+            _react2.default.createElement("br", null),
+            _react2.default.createElement("br", null)
+          );
+          this.setState({
+            visibleHistory: [].concat(_toConsumableArray(this.state.visibleHistory), [_output2])
+          });
+        }
       }
     }
   }, {
@@ -19969,7 +20049,6 @@ var Terminal = function (_Component) {
   }, {
     key: "focusOnTextarea",
     value: function focusOnTextarea() {
-      console.log(this.textareaRef.current.focus);
       if (this.textareaRef && this.textareaRef.current && this.textareaRef.current.focus) {
         this.textareaRef.current.focus();
       }
@@ -20115,7 +20194,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57795' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65464' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

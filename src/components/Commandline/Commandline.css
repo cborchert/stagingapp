@@ -1,4 +1,5 @@
 .Commandline {
+  color: var(--fgColor);
 }
 
 .Commandline__highlight {

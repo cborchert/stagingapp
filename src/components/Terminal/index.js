@@ -17,7 +17,6 @@ export default class Terminal extends Component {
   }
 
   handleTextareaChange(e) {
-    // console.log(e.target.value);
     this.setState({
       currentInput: e.target.value,
       cursorLocationStart: e.target.selectionStart,
@@ -35,10 +34,69 @@ export default class Terminal extends Component {
 
   handleKeyup(e) {
     const code = e.which || e.keyCode;
+    const command = this.state.currentInput;
     switch (code) {
       case 13:
         this.newCommand();
+        this.checkCommand(command);
         break;
+    }
+  }
+
+  checkCommand(command) {
+    if (command && command.trim) {
+      let cmd = command.trim();
+      if (cmd === "clear") {
+        this.setState({ visibleHistory: [] });
+      } else if (cmd === "help") {
+        let output = (
+          <div>
+            <br />&nbsp;&nbsp;stagingsite.app commands
+            <br />&nbsp;&nbsp;------------------------
+            <br />&nbsp;&nbsp;`clear` clears the screen
+            <br />&nbsp;&nbsp;`help` shows the help screen
+            <br />&nbsp;&nbsp;`about` shows app information
+            <br />
+            <br />
+          </div>
+        );
+        this.setState({
+          visibleHistory: [...this.state.visibleHistory, output]
+        });
+      } else if (cmd === "about") {
+        let output = (
+          <div>
+            <br />&nbsp;&nbsp;stagingsite.app created by{" "}
+            <a href="http://cborchert.com/" target="_blank">
+              chris borchert
+            </a>.
+            <br />&nbsp;&nbsp;check out the{" "}
+            <a href="https://github.com/cborchert/stagingapp" target="_blank">
+              git repo
+            </a>
+            <br />&nbsp;&nbsp;need some dev work done?{" "}
+            <a href="http://cborchert.com/hire" target="_blank">
+              drop a line
+            </a>
+            <br />
+            <br help />
+          </div>
+        );
+        this.setState({
+          visibleHistory: [...this.state.visibleHistory, output]
+        });
+      } else {
+        let output = (
+          <div>
+            <br />&nbsp;&nbsp;command not recognized.
+            <br />&nbsp;&nbsp;type `help` for a list of all commands.<br />
+            <br />
+          </div>
+        );
+        this.setState({
+          visibleHistory: [...this.state.visibleHistory, output]
+        });
+      }
     }
   }
 
@@ -57,7 +115,6 @@ export default class Terminal extends Component {
   }
 
   focusOnTextarea() {
-    console.log(this.textareaRef.current.focus);
     if (
       this.textareaRef &&
       this.textareaRef.current &&

@@ -6,3 +6,7 @@
   width: 0;
   height: 0;
 }
+
+.Terminal__history {
+  color: var(--accentColor);
+}
