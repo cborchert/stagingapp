@@ -1,9 +1,6 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
 import { h, render } from "preact";
 import Terminal from "./components/Terminal";
 import "./index.css";
-/** @jsx h */
 
 if (process.env.NODE_ENV === "development") {
   // Enable preact devtools

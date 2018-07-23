@@ -1,6 +1,5 @@
 import { h, render, Component } from "preact";
 import "./Commandline.css";
-/** @jsx h */
 
 const Commandline = ({
   active,

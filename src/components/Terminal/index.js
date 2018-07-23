@@ -1,8 +1,6 @@
-// import React, { Component } from "react";
 import { h, render, Component } from "preact";
 import Commandline from "../Commandline";
 import "./Terminal.css";
-/** @jsx h */
 
 export default class Terminal extends Component {
   constructor(props) {

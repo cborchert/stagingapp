@@ -1,16 +1,4 @@
 {
   "presets": ["env", "react"],
-  "plugins": [
-    [
-      "module-resolver",
-      {
-        "root": ["."],
-        "alias": {
-          "react": "preact-compat",
-          "react-dom": "preact-compat"
-        }
-      }
-    ],
-    ["transform-react-jsx", { "pragma": "h" }]
-  ]
+  "plugins": [["transform-react-jsx", { "pragma": "h" }]]
 }
