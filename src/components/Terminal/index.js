@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import { h, render, Component } from "preact";
 import Commandline from "../Commandline";
 import "./Terminal.css";
+/** @jsx h */
 
 export default class Terminal extends Component {
   constructor(props) {
@@ -13,7 +15,8 @@ export default class Terminal extends Component {
       visibleHistory: []
     };
     this.handleKeyup = this.handleKeyup.bind(this);
-    this.textareaRef = React.createRef();
+    this.textareaRef = null;
+    // this.textareaRef = React.createRef();
   }
 
   handleTextareaChange(e) {
@@ -115,12 +118,8 @@ export default class Terminal extends Component {
   }
 
   focusOnTextarea() {
-    if (
-      this.textareaRef &&
-      this.textareaRef.current &&
-      this.textareaRef.current.focus
-    ) {
-      this.textareaRef.current.focus();
+    if (this.textareaRef && this.textareaRef.focus) {
+      this.textareaRef.focus();
     }
   }
 
@@ -167,7 +166,7 @@ export default class Terminal extends Component {
           onKeyUp={this.handleTextareaInteraction.bind(this)}
           onFocus={this.handleTextareaInteraction.bind(this)}
           onBlur={this.focusOnTextarea.bind(this)}
-          ref={this.textareaRef}
+          ref={ref => (this.textareaRef = ref)}
         />
       </div>
     );

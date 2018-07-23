@@ -1,5 +1,6 @@
-import React from "react";
+import { h, render, Component } from "preact";
 import "./Commandline.css";
+/** @jsx h */
 
 const Commandline = ({
   active,
@@ -37,12 +38,12 @@ const Commandline = ({
   );
 };
 
-Commandline.defaultProps = {
-  active: false,
-  text: "",
-  highlightStart: 0,
-  highlightEnd: 0,
-  prefix: ""
-};
+// Commandline.defaultProps = {
+//   active: false,
+//   text: "",
+//   highlightStart: 0,
+//   highlightEnd: 0,
+//   prefix: ""
+// };
 
 export default Commandline;
